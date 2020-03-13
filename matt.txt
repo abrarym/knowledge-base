@@ -1,1 +1,0 @@
-If you see this with your 'name.txt', it means you're working on the correct branch.

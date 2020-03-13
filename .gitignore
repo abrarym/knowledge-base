@@ -15,8 +15,3 @@ jspm_packages/
 !.vscode/launch.json
 !.vscode/extensions.json
 
-# Text Branch Checker
-kevin.txt
-matt.txt
-benson.txt
-david.txt

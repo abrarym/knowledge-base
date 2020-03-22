@@ -29,80 +29,46 @@
     </section>
     <!-- ./Heading/Image Section -->
 
-    <!-- Login Section -->
+    <!-- Login Container Section -->
     <section class="login-container">
+      <!-- Login Section -->
       <form class="login-container__form" method="POST">
         <input type="email" name="email" placeholder="email" required />
         <input type="password" name="password" placeholder="password"
           required />
         <button class="login-container__bttn" type="submit">login</button>
       </form>
+      <!-- ./Login Section -->
+
+      <h2 class="login-container__welcome">
+        Join the worlds largest community for coders, where developers learn,
+        share, and refactor.
+        <span id="blink">|</span>
+      </h2>
+
+      <!-- Signup Section -->
+      <form class="login-container__register" method="POST">
+        <input class="register__firstname" type="text" name="firstname"
+          placeholder="First name" required />
+
+        <input class="register__lastname" type="text" name="lastname"
+          placeholder="Last name" required />
+
+        <input class="register__flexstretch" type="email" name="email"
+          placeholder="Email" required />
+
+        <input class="register__flexstretch" type="password" name="password"
+          placeholder="Password" required />
+
+        <input class="register__flexstretch" type="password"
+          name="passwordconfirm" placeholder="Confirm Password" required />
+
+        <button type="submit"
+          class="login-container__bttn signup">signup</button>
+      </form>
+      <!-- ./Signup Section -->
     </section>
-    <!-- ./Login Section -->
-
-    <!-- Signup Section -->
-    <!-- <section class="signup-container">
-      <p id="maintext">Join the world's largest community for knowledge sharing
-      </p>
-
-      <form method="POST">
-        <div>
-          <input type="text" class="first" name="firstname"
-            placeholder="First name" required />
-          <input type="text" class="last" name="lastname"
-            placeholder="Last name" required />
-        </div>
-        <div>
-          <input type="email" class="email" name="email" placeholder="Email"
-            required />
-        </div>
-        <div>
-          <input type="password" class="password" name="password"
-            placeholder="Password" id="password" required />
-        </div>
-        <div>
-          <input type="password" class="password" name="passwordconfirm"
-            placeholder="Confirm Password" id="confirmPassword" required />
-        </div>
-        <input type="submit" class="submit" value="sign up" />
-      </form>
-    </section> -->
-    <!-- ./Signup Section -->
-
-    <!-- <section class="signup-container" <div class="formdiv">
-      <form method="POST">
-        <input id="email" type="email" name="email" placeholder="email"
-          required />
-        <input id="code" type="password" name="password" placeholder="password"
-          required />
-        <input id="submit" type="submit" value="log in" />
-      </form>
-
-      <p id="maintext">Join the world's largest community for knowledge sharing
-      </p>
-
-      <form method="POST">
-        <div>
-          <input type="text" class="first" name="firstname"
-            placeholder="First name" required />
-          <input type="text" class="last" name="lastname"
-            placeholder="Last name" required />
-        </div>
-        <div>
-          <input type="email" class="email" name="email" placeholder="Email"
-            required />
-        </div>
-        <div>
-          <input type="password" class="password" name="password"
-            placeholder="Password" id="password" required />
-        </div>
-        <div>
-          <input type="password" class="password" name="passwordconfirm"
-            placeholder="Confirm Password" id="confirmPassword" required />
-        </div>
-        <input type="submit" class="submit" value="sign up" />
-      </form>
-    </section> -->
+    <!-- ./Login Container Section -->
   </main>
 </body>
 

@@ -53,7 +53,7 @@ button:focus {
 .welcome-container {
   display: flex;
   justify-content: space-around;
-  align-items: center;
+  align-items: stretch;
   height: 100vh;
   flex-wrap: wrap;
 }
@@ -65,7 +65,6 @@ button:focus {
   font-family: var(--headingText);
   font-size: 3rem;
   align-items: center;
-  height: 50vh;
 }
 
 .heading-primary {
@@ -84,8 +83,8 @@ button:focus {
 .login-container {
   display: flex;
   justify-content: center;
-  padding: 1.5rem;
-  width: 50rem;
+  padding: 1.2rem;
+  width: 40vw;
   height: 50vh;
 }
 
@@ -132,6 +131,10 @@ button:focus {
   .header__image {
     max-width: 65%;
   }
+
+  .login-container {
+    width: 100vw;
+  }
 }
 
 @media (max-width: 640px) {
@@ -148,8 +151,17 @@ button:focus {
     max-width: 100%;
   }
 
+  /* may need to get rid of this later */
+
+  .login-container {
+    height: 65vh;
+    width: 50vw;
+    text-align: center;
+  }
+
   .login-container input {
-    width: 25vw;
-    margin: .2rem;
+    width: 40vw;
+    margin: .8rem;
+    display: block;
   }
 }

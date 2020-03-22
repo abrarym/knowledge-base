@@ -1,0 +1,155 @@
+/* COLOURS */
+/* #4ecca3 */
+/* #eee */
+
+/* ./COLOURS */
+
+/* VARIABLES */
+
+:root {
+  /* Text Variables */
+  --headingText: "Space Mono", monospace;
+  --bodyText: "Muli", sans-serif;
+  --bgLight: #eee;
+  --primaryWhite: #fff;
+  --primaryBlack: #111;
+  --primaryGreen: #4ecca3;
+}
+
+/* ./VARIABLES */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+  font-family: var(--bodyText);
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1.7;
+  color: var(--primaryBlack);
+  padding: 3rem;
+  background-color: var(--bgLight);
+}
+
+button {
+  border: none;
+}
+
+button:focus {
+  outline: none;
+  transform: scale(1.06);
+}
+
+.welcome-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100vh;
+  flex-wrap: wrap;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  font-family: var(--headingText);
+  font-size: 3rem;
+  align-items: center;
+  height: 50vh;
+}
+
+.heading-primary {
+  text-transform: lowercase;
+}
+
+.heading-primary--sub {
+  text-transform: uppercase;
+  color: var(--primaryGreen);
+}
+
+.header__image {
+  max-width: 50vw;
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  padding: 1.5rem;
+  width: 50rem;
+  height: 50vh;
+}
+
+.login-container input {
+  min-width: 12vw;
+  min-height: 2.4rem;
+  display: inline-block;
+  margin: .4rem;
+  padding-left: 1rem;
+}
+
+.login-container input::placeholder {
+  text-transform: uppercase;
+}
+
+.login-container input:focus {
+  outline: none;
+  border: .2rem solid var(--primaryGreen);
+  box-shadow: 0 0 .4rem var(--primaryGreen);
+  font-size: 1.4rem;
+}
+
+.login-container__bttn {
+  margin: 1rem;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  font-weight: 700;
+  width: 7rem;
+  height: 3rem;
+  text-align: center;
+  color: var(--primaryWhite);
+  background-color: var(--primaryGreen);
+  border-radius: .6rem;
+}
+
+/* MOBILE DEVICES */
+@media (max-width: 1024px) {
+
+  .welcome-container {
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .header__image {
+    max-width: 65%;
+  }
+}
+
+@media (max-width: 640px) {
+
+  .welcome-container {
+    justify-content: center;
+  }
+
+  .header {
+    font-size: 2rem;
+  }
+
+  .header__image {
+    max-width: 100%;
+  }
+
+  .login-container input {
+    width: 25vw;
+    margin: .2rem;
+  }
+}

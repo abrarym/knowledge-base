@@ -4,16 +4,72 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Knowledge Base</title>
+  <title>Knowledge Base | Where Developers Learn, Share & Refactor</title>
+  <link
+    href="https://fonts.googleapis.com/css?family=Muli|Space+Mono:400,700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="/public/css/styles.css" />
 </head>
 
 <body>
-  <!-- DAVID do your html here -->
-  <h1>
-    <!-- you can delete this H1 David, this is just test -->
-    This is a test Heading to show everything is working.
-  </h1>
-  <!-- END OF DAVID html -->
+  <main class="welcome-container">
+    <!-- Heading/Image Section -->
+    <section class="header-image-container">
+      <div class="header">
+        <div class="header__text-box">
+          <h1 class="heading-primary">
+            <span class="heading-primary--main">Knowledge</span><span
+              class="heading-primary--sub">Base</span>
+          </h1>
+        </div>
+
+        <img src="/public/img/login_image.png" class="header__image"
+          alt="coder showcasing app" />
+      </div>
+    </section>
+    <!-- ./Heading/Image Section -->
+
+    <!-- Login Container Section -->
+    <section class="login-container">
+      <!-- Login Section -->
+      <form class="login-container__form" method="POST">
+        <input type="email" name="email" placeholder="email" required />
+        <input type="password" name="password" placeholder="password"
+          required />
+        <button class="login-container__bttn" type="submit">login</button>
+      </form>
+      <!-- ./Login Section -->
+
+      <h2 class="login-container__welcome">
+        Join the worlds largest community for coders, where developers learn,
+        share, and refactor.
+        <span id="blink">|</span>
+      </h2>
+
+      <!-- Signup Section -->
+      <form class="login-container__register" method="POST">
+        <input class="register__firstname" type="text" name="firstname"
+          placeholder="First name" required />
+
+        <input class="register__lastname" type="text" name="lastname"
+          placeholder="Last name" required />
+
+        <input class="register__flexstretch" type="email" name="email"
+          placeholder="Email" required />
+
+        <input class="register__flexstretch" type="password" name="password"
+          placeholder="Password" required />
+
+        <input class="register__flexstretch" type="password"
+          name="passwordconfirm" placeholder="Confirm Password" required />
+
+        <button type="submit"
+          class="login-container__bttn signup">signup</button>
+      </form>
+      <!-- ./Signup Section -->
+    </section>
+    <!-- ./Login Container Section -->
+  </main>
 </body>
 
 </html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {{> _head }}
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  {{# container }}
+  <!-- Heading/Image Section -->
+  {{# header_login }}
+  {{> _header_title }}
+  <div class="blob"></div>
+  <img src="img/login_image.png" class="header__image"
+    alt="female pointing at textbox" />
+  {{/ header_login }}
+  <!-- ./Heading/Image Section -->
+
+  <!-- Forms Section -->
+  {{# forms }}
+
+  <!-- Login Section -->
+  {{> _login_form }}
+  <!-- ./Login Section -->
+
+  <h2 class="login-container__welcome">
+    Join the world's largest community for coders, where developers learn,
+    share, and refactor.
+    <span id="blink">|</span>
+  </h2>
+
+  <!-- Signup Section -->
+  {{> _signup_form }}
+  <!-- ./Signup Section -->
+
+  {{/ forms }}
+  <!-- ./Forms Section -->
+  {{/ container }}
+</body>
+
+</html>

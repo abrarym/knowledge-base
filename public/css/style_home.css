@@ -1,0 +1,31 @@
+.welcome-container {
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+.heading-primary {
+  animation: none;
+}
+
+.heading-primary--sub {
+  margin-left: 0;
+}
+
+.login-container {
+  display: flex;
+  justify-content: flex-start;
+  padding: 2rem;
+  height: auto;
+  max-width: 95rem;
+}
+
+.login-container input,
+textarea {
+  max-height: 3.5rem;
+  max-width: 2rem;
+}
+
+.login-container input:focus {
+  font-size: 2rem;
+  max-width: 85vw;
+}

@@ -1,0 +1,45 @@
+/* COLOURS */
+/*
+#4ecca3
+#009975
+#9df3c4
+#403d55
+#f85f73
+*/
+/* ./COLOURS */
+
+/* VARIABLES */
+
+:root {
+  /* Text Variables */
+  --bodyText: "Muli", sans-serif;
+}
+
+/* ./VARIABLES */
+
+.login-container {
+  justify-content: flex-end;
+  height: 60vh;
+}
+
+.login-container__welcome {
+  margin: 8rem 0 2rem;
+  font-size: 3rem;
+  font-family: var(--bodyText);
+}
+
+.login-container__register {
+  transform: translateY(45%);
+}
+
+/* MOBILE DEVICES */
+@media (max-width: 1024px) {
+
+  .login-container {
+    margin-bottom: 5rem;
+  }
+
+  .login-container__register {
+    transform: translateY(0);
+  }
+}

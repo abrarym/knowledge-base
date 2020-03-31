@@ -256,6 +256,15 @@ textarea::placeholder {
 
 .login-container__register.registration {
   transform: translateY(45%);
+<<<<<<< HEAD
+=======
+}
+
+.login-container__register input,
+textarea {
+  margin: 1rem;
+  border: solid .1rem var(--borderOutline);
+>>>>>>> 38f205caf558330ab64e0876247036f48ed8ffc1
 }
 
 .register__firstname {

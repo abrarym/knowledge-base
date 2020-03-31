@@ -1,0 +1,28 @@
+{
+  "name": "knowledge-base",
+  "version": "1.0.0",
+  "description": "Term Project for COMP 4711",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js -e js,hbs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kvizconde/knowledge-base.git"
+  },
+  "author": "KDMB",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kvizconde/knowledge-base/issues"
+  },
+  "homepage": "https://github.com/kvizconde/knowledge-base#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "hbs": "^4.1.0",
+    "request": "^2.88.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}

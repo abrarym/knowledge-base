@@ -7,8 +7,60 @@
 </head>
 
 <body>
-  <main class="welcome-container home">
-    {{> _navbar_main }}
+  <main class="wrapper__home">
+    <div class="welcome-container home">
+      {{> _navbar_main }}
+    </div>
+
+    <!-- profile section -->
+    <div class="profile-section home">
+      <!-- profile -->
+      <div class="profile-section__contain">
+        <img class="profile-section__img"
+          src="https://randomuser.me/api/portraits/women/60.jpg"
+          alt="user profile picture" />
+        <h2 class="profile-section__heading">
+          <span class="profile-section__heading--main">Chun Li</span><span
+            class="profile-section__heading--sub">I'm the best street fighter
+            ever. don't 🤬 with me Boiz.</span>
+        </h2>
+
+        <!-- edit profile -->
+
+        <table class="profile-section__interact">
+          <tr>
+            <th><a href="#">🔥 Posts</a></th>
+            <td id="">3</td>
+          </tr>
+
+          <tr>
+            <th><a href="#">📥 Messages</a></th>
+            <td id="">5</td>
+          </tr>
+
+          <tr class="profile-section__interact--likes">
+            <th>👍 Likes</th>
+            <td id="">10</td>
+          </tr>
+
+          <tr>
+            <th><a href="#">👾 Edit Profile</a></th>
+          </tr>
+        </table>
+
+        <!-- ./END-edit profile -->
+      </div>
+      <!-- ./END-profile -->
+
+      <!-- question section -->
+      <div class="profile-section__contain question">
+        <h1 class="question-section__heading">What's your question today?</h1>
+        {{> _question_form }}
+      </div>
+      <!-- ./END-question section -->
+
+    </div>
+    <!-- ./-END-profile section -->
   </main>
 </body>
 

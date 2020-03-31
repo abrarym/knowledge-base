@@ -1,14 +1,9 @@
-<form method="POST" action="" class="question-section">
-  <div>
-    <input class="register__flexstretch" type="text" name="subject"
-      placeholder="subject" />
-  </div>
-  <div>
-    <textarea class="register__flexstretch infobox"
-      placeholder="explain in detail ....." rows="6" name=""
-      required></textarea>
-    <input type="hidden" name="" value="" />
-  </div>
+<form id="" class="login-container__register home" method="POST">
+  <input class="register__flexstretch question" type="text" name=""
+    placeholder="subject" required />
+
+  <textarea class="register__flexstretch infobox" name="description"
+    placeholder="explain in detail..."></textarea>
 
   <div class="question-section__select">
     <select>
@@ -17,7 +12,10 @@
       <option value="2">javascript</option>
       <option value="3">mySQL</option>
     </select>
-
-    <button class="login-container__bttn post" type="submit">post</button>
   </div>
+
+  <button class="login-container__bttn post" type="submit">post ☝️</button>
+
+  <!-- Search By Topic -->
+  {{> _discussions }}
 </form>

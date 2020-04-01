@@ -505,6 +505,7 @@ select:focus {
 
 .login-container__bttn.next {
   margin-top: 4rem;
+  margin-right: 0;
 }
 
 /* ./END-Discussions Section */

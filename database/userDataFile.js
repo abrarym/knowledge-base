@@ -17,5 +17,5 @@ function getSpecificUser(id) {
 module.exports = {
     add : addUsers,
     getall : getAllExistingUsers,
-    getpeople: getSpecificUser 
+    getusers: getSpecificUser 
 }

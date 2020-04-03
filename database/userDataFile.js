@@ -1,7 +1,7 @@
 let datab = require('../util/database');
 
 function addUsers(userInfo) {
-    let sql = "Insert into users(firstname, lastname, email, password, passwordconfirm) values ('" + userInfo.firstname + "','"+ userInfo.lastname+ "','" + userInfo.email + "','"+ userInfo.password+ "','" + userInfo.passwordconfirm + "','" + "')";
+    let sql = "Insert into users(firstname, lastname, email, password, passwordconfirm) values ('" + userInfo.firstname + "','"+ userInfo.lastname+ "','" + userInfo.email + "','"+ userInfo.password+ "','" + userInfo.passwordconfirm + "')";
     
     datab.execute(sql);
 }

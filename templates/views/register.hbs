@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {{> _head }}
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <main class="welcome-container register">
+    <section class="header-image-container">
+      <div class="header">
+        {{> _header_title }}
+        <h2 class="login-container__welcome registration">
+          Let us know a little more about you.
+          <span id="blink">|</span>
+        </h2>
+        <div class="blob"></div>
+        <img src="img/register_image.png" class="header__image"
+          alt="male leaning on phone" />
+      </div>
+    </section>
+
+    <section class="login-container registration">
+      <!-- Register Section -->
+      {{> _register_form }}
+      <!-- ./Register Section -->
+    </section>
+  </main>
+</body>
+
+</html>

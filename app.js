@@ -1,9 +1,12 @@
 const path = require('path');
 const express = require('express');
 const expressHbs = require('express-handlebars');
+var bodyParser = require('body-parser');
 
 const app = express();
 const port = process.env.PORT || 3000;
+
+var urlencodedParser = bodyParser.urlencoded({ extended: false});
 
 // Define paths for Express config
 const publicDirectoryPath = path.join(__dirname, 'public');
@@ -37,6 +40,13 @@ app.use(userRoutesFile);
 
 app.get('/register', (req, res) => {
   res.render('register', {
+    title: 'Registration Page',
+  });
+});
+
+app.post('/', urlencodedParser, function(req, res){
+         console.log(req.body);
+res.render('register', {
     title: 'Registration Page',
   });
 });

@@ -42,10 +42,11 @@ app.get('/home', (req, res) => {
   });
 });
 
-// MATT & BENSON your back-end stuff starts here
-
-
-// END OF BACK-END STUFF
+app.get('/profile', (req, res) => {
+  res.render('profile', {
+    title: 'Profile Page',
+  });
+});
 
 app.listen(port, () => {
   console.log('server is up on port 3000');

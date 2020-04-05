@@ -1,0 +1,40 @@
+<!-- remove this later, once controllers are done -->
+
+<head>
+  <link rel="stylesheet" href="css/profile.css" />
+</head>
+<main class="wrapper__home">
+  <div class="welcome-container home">
+    {{> _navbar_main }}
+  </div>
+
+  <!-- profile section -->
+  <div class="profile-section home">
+    <div class="profile-section__contain">
+      {{> _profile_info }}
+      <form id="" class="login-container__register message" method="POST">
+        <div class="message--wrap">
+          <button class="login-container__bttn message"
+            type="submit">Message</button>
+
+          <table class="profile-section__interact">
+            <tr>
+              <th>🔥 Posts</a></th>
+              <td id="">3</td>
+            </tr>
+            <tr class="profile-section__interact--likes">
+              <th>👍 Likes</th>
+              <td id="">10</td>
+            </tr>
+          </table>
+        </div>
+      </form>
+    </div>
+
+    <!-- question section -->
+    <div class="profile-section__contain question">
+      {{> _profile_posts }}
+    </div>
+    <!-- ./END-question section -->
+  </div>
+</main>

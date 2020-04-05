@@ -383,9 +383,9 @@ select:focus {
   display: flex;
   align-items: flex-start;
   flex-wrap: wrap;
-  border-radius: .6rem;
+  /* border-radius: .6rem; */
   border: .1rem solid var(--secondaryGray);
-  margin-top: .1rem;
+  margin-top: -.1rem;
 }
 
 .row:hover {

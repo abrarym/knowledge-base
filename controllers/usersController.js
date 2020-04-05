@@ -16,7 +16,7 @@ exports.getUsers = (req, res, next) => {
     let id = req.params.id;
     let users = userModel.getUsers(id);
     users.then( ([data, metadeta]) => {
-        res.render('home', {home: data[], style: true});
+        res.render('home', {home: data[0], style: true});
     });
 }
 

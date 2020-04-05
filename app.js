@@ -24,11 +24,16 @@ app.set('views', 'views');
 // Setup static directory to serve
 app.use(express.static(publicDirectoryPath));
 
+// create a variable that links to the route
+let userRoutesFile = require('./routes/usersRoutes');
+
 app.get('', (req, res) => {
   res.render('index', {
     title: 'Where Developers Learn, Share & Refactor',
   });
 });
+
+app.use(userRoutesFile);
 
 app.get('/register', (req, res) => {
   res.render('register', {
@@ -43,7 +48,6 @@ app.get('/home', (req, res) => {
 });
 
 // MATT & BENSON your back-end stuff starts here
-
 
 // END OF BACK-END STUFF
 

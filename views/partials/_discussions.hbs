@@ -1,8 +1,8 @@
 <div class="discussion__container">
-
   <h1 class="question-section__heading--disc">Latest Discussions</h1>
   <ul class="column">
-    <li class="row">
+    {{> postings }}
+    <!-- <li class="row">
       <a href="" class="">
         <img class="profile-section__img"
           src="https://randomuser.me/api/portraits/men/32.jpg"
@@ -20,9 +20,13 @@
       <p class="discussion__date">31 March 2020</p>
       <p class="discussion__replies"><a href="" id="" class="replies--link">5
           replies</a></p>
-    </li>
+    </li> -->
 
-    <button class="login-container__bttn next" type="submit">next →</button>
+    <div class="pagination--bttn">
+      <button class="login-container__bttn next" type="submit">
+        ← previous
+      </button>
+      <button class="login-container__bttn next" type="submit">next →</button>
+    </div>
   </ul>
-
 </div>

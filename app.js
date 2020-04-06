@@ -7,6 +7,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 var urlencodedParser = bodyParser.urlencoded({ extended: false});
+var urlencodedParser2 = bodyParser.urlencoded({ extended: false});
 
 // Define paths for Express config
 const publicDirectoryPath = path.join(__dirname, 'public');
@@ -38,17 +39,25 @@ app.get('', (req, res) => {
 
 app.use(userRoutesFile);
 
+app.post('', urlencodedParser, function(req, res){
+    console.log(req.body);
+    res.render('register', {
+        data: 'req.body',
+    });
+});
+
 app.get('/register', (req, res) => {
   res.render('register', {
     title: 'Registration Page',
   });
 });
 
-app.post('/', urlencodedParser, function(req, res){
-         console.log(req.body);
-res.render('register', {
-    title: 'Registration Page',
-  });
+
+app.post('/register', urlencodedParser, function(req, res) {
+    console.log(req.body);
+    res.render('home', {
+        data: 'req.body',
+    });
 });
 
 app.get('/home', (req, res) => {
@@ -56,6 +65,7 @@ app.get('/home', (req, res) => {
     title: 'Home Page',
   });
 });
+
 
 // MATT & BENSON your back-end stuff starts here
 

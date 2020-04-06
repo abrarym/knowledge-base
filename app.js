@@ -36,25 +36,9 @@ app.get('', (req, res) => {
   });
 });
 
-app.use(userRoutesFile);
-
-app.post('', urlencodedParser, (req, res) => {
-  console.log(req.body);
-  res.render('register', {
-    data: 'req.body',
-  });
-});
-
 app.get('/register', (req, res) => {
   res.render('register', {
     title: 'Registration Page',
-  });
-});
-
-app.post('/register', urlencodedParser, (req, res) => {
-  console.log(req.body);
-  res.render('home', {
-    data: 'req.body',
   });
 });
 
@@ -73,6 +57,23 @@ app.get('/profile', (req, res) => {
 app.get('/message', (req, res) => {
   res.render('message', {
     title: 'Message Page',
+  });
+});
+
+// BENSON PUT YOUR CODE UNDER THIS
+app.use(userRoutesFile);
+
+app.post('', urlencodedParser, (req, res) => {
+  console.log(req.body);
+  res.render('register', {
+    data: 'req.body',
+  });
+});
+
+app.post('/register', urlencodedParser, (req, res) => {
+  console.log(req.body);
+  res.render('home', {
+    data: 'req.body',
   });
 });
 

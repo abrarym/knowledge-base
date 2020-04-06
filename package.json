@@ -4,8 +4,8 @@
   "description": "Term Project for COMP 4711",
   "main": "index.js",
   "scripts": {
-    "start": "node src/app.js",
-    "dev": "nodemon src/app.js -e js,hbs"
+    "start": "node app.js",
+    "dev": "nodemon app.js -e js,hbs"
   },
   "repository": {
     "type": "git",
@@ -19,7 +19,7 @@
   "homepage": "https://github.com/kvizconde/knowledge-base#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "hbs": "^4.1.0",
+    "express-handlebars": "^4.0.1",
     "request": "^2.88.2"
   },
   "devDependencies": {

@@ -1,19 +1,25 @@
 const path = require('path');
 const express = require('express');
-const hbs = require('hbs');
+const expressHbs = require('express-handlebars');
 
 const app = express();
 const port = process.env.PORT || 3000;
 
 // Define paths for Express config
-const publicDirectoryPath = path.join(__dirname, '../public');
-const viewsPath = path.join(__dirname, '../templates/views');
-const partialsPath = path.join(__dirname, '../templates/partials');
+const publicDirectoryPath = path.join(__dirname, 'public');
+
+app.engine(
+  'hbs',
+  expressHbs({
+    layoutsDir: 'views/layouts/',
+    defaultLayout: 'main',
+    extname: 'hbs',
+  }),
+);
 
 // Setup handlebars engine and views location
 app.set('view engine', 'hbs');
-app.set('views', viewsPath);
-hbs.registerPartials(partialsPath);
+app.set('views', 'views');
 
 // Setup static directory to serve
 app.use(express.static(publicDirectoryPath));
@@ -36,9 +42,17 @@ app.get('/home', (req, res) => {
   });
 });
 
-// MATT & BENSON your back-end stuff starts here
+app.get('/profile', (req, res) => {
+  res.render('profile', {
+    title: 'Profile Page',
+  });
+});
 
-// END OF BACK-END STUFF
+app.get('/message', (req, res) => {
+  res.render('message', {
+    title: 'Message Page',
+  });
+});
 
 app.listen(port, () => {
   console.log('server is up on port 3000');

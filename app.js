@@ -31,7 +31,7 @@ app.set('views', 'views');
 app.use(express.static(publicDirectoryPath));
 
 // create a variable that links to the route
-// const userRoutesFile = require('./routes/usersRoutes');
+const userRoutesFile = require('./routes/usersRoutes');
 
 app.get('', (req, res) => {
   res.render('index', {
@@ -76,7 +76,6 @@ app.get('/home', urlencodedParser, (req, res) => {
   });
 });
 
-// MATT & BENSON your back-end stuff starts here
 app.get('/profile', (req, res) => {
   res.render('profile', {
     title: 'Profile Page',

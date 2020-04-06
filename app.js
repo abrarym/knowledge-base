@@ -2,12 +2,14 @@ const path = require('path');
 const express = require('express');
 const expressHbs = require('express-handlebars');
 var bodyParser = require('body-parser');
+let db = require('./util/database.js');
+let dataFile = require('./models/userDataFile.js');
 
 const app = express();
 const port = process.env.PORT || 3000;
 
 var urlencodedParser = bodyParser.urlencoded({ extended: false});
-var urlencodedParser2 = bodyParser.urlencoded({ extended: false});
+let userInfo = {};
 
 // Define paths for Express config
 const publicDirectoryPath = path.join(__dirname, 'public');
@@ -33,49 +35,58 @@ let userRoutesFile = require('./routes/usersRoutes');
 
 app.get('', (req, res) => {
   res.render('index', {
-    title: 'Where Developers Learn, Share & Refactor',
+    title: 'Where Developers Learn, Share & Refactor'
   });
 });
 
 app.use(userRoutesFile);
 
 app.post('', urlencodedParser, function(req, res){
-    console.log(req.body);
+    userInfo = Object.assign({}, userInfo, req.body);
+    console.log(userInfo);
     res.render('register', {
-        data: 'req.body',
+        title: 'Registration page',
+        data: req.body
     });
 });
 
-app.get('/register', (req, res) => {
+app.get('/register', urlencodedParser,function(req, res) {
+    console.log(req.body);
   res.render('register', {
     title: 'Registration Page',
+      firstname: req.body.firstname,
+        lastname: req.body.lastname
   });
 });
 
-
 app.post('/register', urlencodedParser, function(req, res) {
-    console.log(req.body);
+    userInfo = Object.assign({}, userInfo, req.body);
+    console.log(userInfo);
+    dataFile.add(userInfo);
     res.render('home', {
-        data: 'req.body',
+        title: 'Home Page',
+        data: userInfo
+        
     });
 });
 
-app.get('/home', (req, res) => {
+app.get('/home', urlencodedParser, function(req, res){
+    console.log(req.body);
   res.render('home', {
     title: 'Home Page',
   });
 });
 
-<<<<<<< HEAD
+//<<<<<<< HEAD
 
 // MATT & BENSON your back-end stuff starts here
-=======
+//=======
 app.get('/profile', (req, res) => {
   res.render('profile', {
     title: 'Profile Page',
   });
 });
->>>>>>> 0b20d14a06fc643401675c4b19ae0df6bbcad1a3
+//>>>>>>> 0b20d14a06fc643401675c4b19ae0df6bbcad1a3
 
 app.get('/message', (req, res) => {
   res.render('message', {

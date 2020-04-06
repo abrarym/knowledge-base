@@ -28,7 +28,7 @@ app.set('views', 'views');
 app.use(express.static(publicDirectoryPath));
 
 // create a variable that links to the route
-const userRoutesFile = require('./routes/usersRoutes');
+// const userRoutesFile = require('./routes/usersRoutes');
 
 app.get('', (req, res) => {
   res.render('index', {
@@ -61,21 +61,21 @@ app.get('/message', (req, res) => {
 });
 
 // BENSON PUT YOUR CODE UNDER THIS
-app.use(userRoutesFile);
+// app.use(userRoutesFile);
 
-app.post('', urlencodedParser, (req, res) => {
-  console.log(req.body);
-  res.render('register', {
-    data: 'req.body',
-  });
-});
+// app.post('', urlencodedParser, (req, res) => {
+//   console.log(req.body);
+//   res.render('register', {
+//     data: 'req.body',
+//   });
+// });
 
-app.post('/register', urlencodedParser, (req, res) => {
-  console.log(req.body);
-  res.render('home', {
-    data: 'req.body',
-  });
-});
+// app.post('/register', urlencodedParser, (req, res) => {
+//   console.log(req.body);
+//   res.render('home', {
+//     data: 'req.body',
+//   });
+// });
 
 app.listen(port, () => {
   console.log('server is up on port 3000');

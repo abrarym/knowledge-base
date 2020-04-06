@@ -66,16 +66,11 @@ app.get('/home', (req, res) => {
   });
 });
 
-<<<<<<< HEAD
-
-// MATT & BENSON your back-end stuff starts here
-=======
 app.get('/profile', (req, res) => {
   res.render('profile', {
     title: 'Profile Page',
   });
 });
->>>>>>> 0b20d14a06fc643401675c4b19ae0df6bbcad1a3
 
 app.get('/message', (req, res) => {
   res.render('message', {

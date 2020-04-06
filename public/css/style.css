@@ -503,9 +503,15 @@ select:focus {
 
 /* ./END-User Cards */
 
+.pagination--bttn {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
 .login-container__bttn.next {
-  margin-top: 4rem;
-  margin-right: 0;
+  margin: 4rem 0 0;
+  width: 12rem;
 }
 
 /* ./END-Discussions Section */

@@ -245,6 +245,10 @@ select:focus {
   border: .25rem solid var(--borderOutline);
 }
 
+.profile-section__img.replies {
+  width: 8rem;
+}
+
 .profile-section__heading {
   font-size: 2.2rem;
   text-align: center;
@@ -388,6 +392,19 @@ select:focus {
   margin-top: -.1rem;
 }
 
+.row.replies {
+  margin-left: 6rem;
+  border: none;
+  border-bottom: .1rem solid var(--secondaryGray);
+  border-right: .1rem solid var(--secondaryGray);
+  border-left: 1.5rem solid var(--headingDark);
+}
+
+.dicussion__reply-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .row:hover {
   background: var(--primaryGreen);
   background: linear-gradient(to right, #0faa95, 15%, var(--primaryGreen));
@@ -407,6 +424,7 @@ select:focus {
 .replies--link:hover {
   color: var(--headingDark);
   font-weight: 700;
+  cursor: pointer;
 }
 
 .row:hover .replies--link {
@@ -557,6 +575,12 @@ textarea::placeholder {
 
 /* ./END-Profile Page */
 
+.login-container__bttn.reply {
+  font-size: 1.6rem;
+  width: 12rem;
+  height: 3rem;
+}
+
 .logout-container {
   display: flex;
   justify-content: flex-end;
@@ -630,6 +654,13 @@ textarea::placeholder {
   width: 50rem;
 }
 
+.comment__reply {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  margin: 1rem -.8rem 10rem;
+}
+
 .login-container__register.msg {
   justify-content: flex-start;
   width: 50rem;
@@ -650,6 +681,11 @@ textarea::placeholder {
 .infobox {
   resize: none;
   height: 20rem;
+}
+
+.infobox.reply {
+  height: 8rem;
+  width: 44rem;
 }
 
 /* ANIMATIONS */

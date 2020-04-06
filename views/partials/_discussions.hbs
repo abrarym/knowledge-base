@@ -1,5 +1,4 @@
 <div class="discussion__container">
-
   <h1 class="question-section__heading--disc">Latest Discussions</h1>
   <ul class="column">
     {{> postings }}
@@ -23,7 +22,11 @@
           replies</a></p>
     </li> -->
 
-    <button class="login-container__bttn next" type="submit">next →</button>
+    <div class="pagination--bttn">
+      <button class="login-container__bttn next" type="submit">
+        ← previous
+      </button>
+      <button class="login-container__bttn next" type="submit">next →</button>
+    </div>
   </ul>
-
 </div>

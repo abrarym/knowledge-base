@@ -41,7 +41,7 @@ app.get('', (req, res) => {
 
 app.use(userRoutesFile);
 
-app.post('', urlencodedParser, function(req, res) {
+app.post('', urlencodedParser, (req, res) => {
   userInfo = Object.assign({}, userInfo, req.body);
   console.log(userInfo);
   res.render('register', {
@@ -50,7 +50,7 @@ app.post('', urlencodedParser, function(req, res) {
   });
 });
 
-app.get('/register', urlencodedParser, function(req, res) {
+app.get('/register', urlencodedParser, (req, res) => {
   console.log(req.body);
   res.render('register', {
     title: 'Registration Page',
@@ -59,7 +59,7 @@ app.get('/register', urlencodedParser, function(req, res) {
   });
 });
 
-app.post('/register', urlencodedParser, function(req, res) {
+app.post('/register', urlencodedParser, (req, res) => {
   userInfo = Object.assign({}, userInfo, req.body);
   console.log(userInfo);
   dataFile.add(userInfo);
@@ -69,7 +69,7 @@ app.post('/register', urlencodedParser, function(req, res) {
   });
 });
 
-app.get('/home', urlencodedParser, function(req, res) {
+app.get('/home', urlencodedParser, (req, res) => {
   console.log(req.body);
   res.render('home', {
     title: 'Home Page',
@@ -88,23 +88,6 @@ app.get('/message', (req, res) => {
     title: 'Message Page',
   });
 });
-
-// BENSON PUT YOUR CODE UNDER THIS
-// app.use(userRoutesFile);
-
-// app.post('', urlencodedParser, (req, res) => {
-//   console.log(req.body);
-//   res.render('register', {
-//     data: 'req.body',
-//   });
-// });
-
-// app.post('/register', urlencodedParser, (req, res) => {
-//   console.log(req.body);
-//   res.render('home', {
-//     data: 'req.body',
-//   });
-// });
 
 app.listen(port, () => {
   console.log('server is up on port 3000');

@@ -76,7 +76,6 @@ app.get('/home', urlencodedParser, (req, res) => {
   });
 });
 
-// MATT & BENSON your back-end stuff starts here
 app.get('/profile', (req, res) => {
   res.render('profile', {
     title: 'Profile Page',

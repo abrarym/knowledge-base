@@ -1,0 +1,27 @@
+<main class="wrapper__home">
+  <div class="welcome-container home">
+    {{> _navbar_main }}
+  </div>
+
+  <!-- profile avatar section -->
+  <div class="profile-section home">
+    <div class="profile-section__contain">
+      {{> _profile_avatar }}
+    </div>
+
+    <!-- send message -->
+    <div class="profile-section__contain">
+      <form id="" class="login-container__register msg" method="POST">
+        <input class="register__flexstretch question" type="text" name=""
+          placeholder="subject" required />
+
+        <textarea class="register__flexstretch infobox" name="description"
+          placeholder="message details..."></textarea>
+
+        <button class="login-container__bttn message"
+          type="submit">Message</button>
+      </form>
+    </div>
+    <!-- ./END-send message -->
+  </div>
+</main>

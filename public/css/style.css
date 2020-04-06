@@ -547,6 +547,16 @@ textarea::placeholder {
   box-shadow: .3rem .5rem 1.2rem rgba(var(--boxShadows), .25);
 }
 
+/* Profile Page */
+
+.login-container__bttn.message {
+  font-size: 1.6rem;
+  width: 14rem;
+  height: 4rem;
+}
+
+/* ./END-Profile Page */
+
 .logout-container {
   display: flex;
   justify-content: flex-end;
@@ -617,6 +627,11 @@ textarea::placeholder {
 
 .login-container__register.home {
   justify-content: flex-end;
+  width: 50rem;
+}
+
+.login-container__register.msg {
+  justify-content: flex-start;
   width: 50rem;
 }
 

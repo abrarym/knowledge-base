@@ -48,6 +48,12 @@ app.get('/profile', (req, res) => {
   });
 });
 
+app.get('/message', (req, res) => {
+  res.render('message', {
+    title: 'Message Page',
+  });
+});
+
 app.listen(port, () => {
   console.log('server is up on port 3000');
 });

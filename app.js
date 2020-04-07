@@ -62,6 +62,7 @@ app.get('/register', urlencodedParser,function(req, res) {
 app.post('/register', urlencodedParser, function(req, res) {
     userInfo = Object.assign({}, userInfo, req.body);
     console.log(userInfo);
+    
     dataFile.add(userInfo);
     res.render('home', {
         title: 'Home Page',

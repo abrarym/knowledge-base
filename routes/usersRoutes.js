@@ -15,7 +15,7 @@ router.post('/usersController/add', userController.postAddUsers);
 router.post('/', userController.post);
 
 router.get('/register', userController.getRegister);
-  
+
 router.post('/register', userController.postRegister);
 
 //router.route('/home').get(userController.getHome);

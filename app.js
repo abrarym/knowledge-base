@@ -33,6 +33,7 @@ app.use(express.static(publicDirectoryPath));
 // create a variable that links to the route
 const userRoutesFile = require('./routes/usersRoutes');
 
+
 app.get('/', (req, res) => {
     res.render('index', {
       title: 'Where Developers Learn, Share & Refactor',

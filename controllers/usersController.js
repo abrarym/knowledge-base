@@ -1,9 +1,11 @@
+const nodemailer = require('nodemailer');
 const userModel = require('../models/userDataFile');
 
 let userInfo = {};
 let postInfo = {};
 let allUserPosts = {};
 const numberOfPost = {};
+let messageDetails = {};
 
 const getAllExistingUsers = (req, res) => {
   const allUsers = userModel.getall();
@@ -104,33 +106,28 @@ exports.postRegister = (req, res) => {
 
 // postHome
 exports.postHome = (req, res) => {
+  const id = req.body.email;
+  const users = userModel.getnumpostmessages(id);
 
-    const id = req.body.email;
-    let users = userModel.getnumpostmessages(id);
+  users.then(([
+    data,
+    metadeta
+  ]) => {
+    userInfo = data[0];
+    console.log(userInfo);
+    const posts = userModel.getallpostsuser(userInfo.iduser);
 
+    posts.then((data, metadeta) => {
+      allUserPosts = data[0];
 
-    users.then(([data, metadeta]) => {
-
-        userInfo = data[0];
-        console.log(userInfo);
-        let posts = userModel.getallpostsuser(userInfo.iduser);
-
-        posts.then((data, metadeta) => {
-            allUserPosts = data[0];
-//            for(let i = 0; i < allUserPosts.length; i++) {
-//                console.log(allUserPosts[i]);
-//            }
-
-            console.log(allUserPosts);
-            res.render('home', {
-            discussion: allUserPosts,
-            data: userInfo,
-            style: true,
-            isHome: true,
-            isProfile: false
-            });
-        });
-
+      console.log(allUserPosts);
+      res.render('home', {
+        discussion: allUserPosts,
+        data: userInfo,
+        style: true,
+        isHome: true,
+        isProfile: false,
+      });
     });
   });
 };
@@ -173,6 +170,32 @@ exports.getMessage = (req, res) => {
 };
 
 exports.postMessage = (req, res) => {
+  messageDetails = req.body;
+  console.log(messageDetails);
+
+  const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: userInfo.email,
+      pass: userInfo.password,
+    },
+  });
+
+  const mailOptions = {
+    from: userInfo.email,
+    to: messageDetails.to,
+    subject: messageDetails.subject,
+    text: messageDetails.text,
+  };
+
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      console.log(error);
+    } else {
+      console.log(`Emal is sent! Reponse was: ${info.reponse}`);
+    }
+  });
+
   res.render('message', {
     title: 'Message Page',
     discussion: postInfo,

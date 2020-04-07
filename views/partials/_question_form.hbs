@@ -1,18 +1,18 @@
-<form id="" class="login-container__register home" method="POST">
-  <input class="register__flexstretch question" type="text" name=""
+<form id="" class="login-container__register home" method="POST" action="/home/post">
+  <input class="register__flexstretch question" type="text" name="subject"
     placeholder="subject" required />
 
-  <textarea class="register__flexstretch infobox" name="description"
-    placeholder="explain in detail..."></textarea>
+  <textarea class="register__flexstretch infobox" name="content"
+    placeholder="explain in detail...">{{discussion.content}}</textarea>
 
   <div class="question-section__select">
-    <select>
+    <select name="topicid">
       <option selected disabled>topic</option>
-      <option value="1">php</option>
-      <option value="2">javascript</option>
-      <option value="3">node js</option>
-      <option value="4">java</option>
-      <option value="5">mySQL</option>
+      <option value="php">php</option>
+      <option value="javascript">javascript</option>
+      <option value="node.js">node js</option>
+      <option value="java">java</option>
+      <option value="mySQL">mySQL</option>
     </select>
   </div>
 

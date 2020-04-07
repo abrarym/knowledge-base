@@ -1,0 +1,18 @@
+<li class="row">
+  <a href="" class="">
+    <img class="profile-section__img"
+      src="{{data.picture}}" alt="user photo" />
+  </a>
+  <h2 class="discussioninfo">
+    <span class="discussionheading">{{discussion.subject}}</span>
+    <span class="discussionsubject"><a href="">{{discussion.topic}}</a></span>
+    <span class="discussiondescription">{{discussion.content}}
+    </span>
+  </h2>
+  <p class="discussion__date">{{discussion.date}}</p>
+  <p class="discussion__replies replies--link" onclick="toggleReplies()">(2) Replies
+  </p>
+</li>
+{{> _replies }}
+
+{{> _add_reply }}

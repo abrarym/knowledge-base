@@ -7,4 +7,13 @@ const pool = mysql.createPool({
     password: '7S::knowledge'
 });
 
+//
+//const poolMessages = mysql.createPool({
+//    host: 'localhost',
+//    user: 'root',
+//    database: 'messagesStorage',
+//    password: 'COMP-4711'
+//});
+
 module.exports = pool.promise();
+

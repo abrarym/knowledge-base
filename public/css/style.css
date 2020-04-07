@@ -122,6 +122,7 @@ hr {
   height: 15rem;
   flex-wrap: nowrap;
   align-items: flex-start;
+  margin-bottom: 10rem;
 }
 
 .header {

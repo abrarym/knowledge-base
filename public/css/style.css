@@ -418,9 +418,6 @@ select:focus {
 
 .row.replies {
   margin-left: 6rem;
-  border: none;
-  border-bottom: .1rem solid var(--secondaryGray);
-  border-right: .1rem solid var(--secondaryGray);
   border-left: 1.5rem solid var(--headingDark);
 }
 

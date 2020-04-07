@@ -112,17 +112,16 @@ exports.postHome = (req, res) => {
         
         userInfo = data[0];
         console.log(userInfo);
+        
         let posts = userModel.getallpostsuser(userInfo.iduser);
         
         posts.then((data, metadeta) => {
             allUserPosts = data[0];
-//            for(let i = 0; i < allUserPosts.length; i++) {
-//                console.log(allUserPosts[i]);
-//            }
             
             console.log(allUserPosts);
             res.render('home', {
-            discussion: allUserPosts,
+            posting: allUserPosts,
+            discussion: postInfo,
             data: userInfo, 
             style: true,
             isHome: true,
@@ -150,13 +149,22 @@ exports.goHome = (req, res) => {
 }
 
 exports.getProfile = (req, res) => {
-    res.render('profile', {
-        title: "Profile page",
-        discussion: postInfo,
-        data: userInfo,
-        isProfile: true,
-        isHome: false
-    });
+    
+    let posts = userModel.getallpostsuser(userInfo.iduser);
+        
+        posts.then((data, metadeta) => {
+            allUserPosts = data[0];
+            
+            console.log(allUserPosts);
+            res.render('profile', {
+            discussion: postInfo,
+            posting : allUserPosts,
+            data: userInfo, 
+            style: true,
+            isHome: true,
+            isProfile: false
+            });
+        }); 
 }
 
 exports.getMessage = (req, res) => {
@@ -169,6 +177,7 @@ exports.getMessage = (req, res) => {
 exports.postMessage = (req, res) => {
     messageDetails = req.body;
     console.log(messageDetails);
+    console.log(messageDetails.subject);
     
     var transporter = nodemailer.createTransport({
             service: 'gmail',
@@ -213,10 +222,6 @@ exports.postPosting = (req, res) => {
     userInfo.postcount++;
 
     res.redirect('/home');
-}
-
-exports.replyPosting = (req, res) => {
-    
 }
 
 exports.getInbox = (req, res) => {

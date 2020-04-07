@@ -1,6 +1,8 @@
 <div class="discussion__container">
   <h1 class="question-section__heading--disc">All Posts By {{data.firstname}}</h1>
   <ul class="column">
+    {{#each posting}}
     {{> _postings }}
+    {{/each}}
   </ul>
 </div>

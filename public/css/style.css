@@ -429,7 +429,8 @@ select:focus {
   flex-wrap: wrap;
 }
 
-.row:hover {
+.row.hoverable:hover,
+.row.focusable:focus {
   background: var(--primaryGreen);
   background: linear-gradient(to right, #0faa95, 15%, var(--primaryGreen));
   color: #fff;
@@ -438,6 +439,11 @@ select:focus {
   transform: scale(1.05);
   transition: .12s ease-out;
   backface-visibility: hidden;
+  outline: none;
+}
+
+.row.focusable:hover {
+  cursor: pointer;
 }
 
 .replies--link {
@@ -450,7 +456,7 @@ select:focus {
   cursor: pointer;
 }
 
-.row:hover .replies--link {
+.row.hoverable:hover .replies--link {
   text-shadow: none;
 }
 
@@ -520,7 +526,7 @@ select:focus {
   height: 3rem;
 }
 
-.row:hover .discussion__heading {
+.row.hoverable:hover .discussion__heading {
   text-shadow: rgba(17, 17, 17, .4) .1rem .2rem .2rem;
 }
 
@@ -530,7 +536,7 @@ select:focus {
   transition: .1s ease-out;
 }
 
-.row:hover .discussion__subject {
+.row.hoverable:hover .discussion__subject {
   box-shadow: .3rem .5rem 1.2rem rgba(var(--boxShadows), .45);
 }
 

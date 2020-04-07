@@ -117,9 +117,10 @@ exports.postHome = (req, res) => {
 //            for(let i = 0; i < allUserPosts.length; i++) {
 //                console.log(allUserPosts[i]);
 //            }
+            
             console.log(allUserPosts);
             res.render('home', {
-            posts: allUserPosts,
+            discussion: allUserPosts,
             data: userInfo, 
             style: true,
             isHome: true,

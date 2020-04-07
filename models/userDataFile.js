@@ -47,11 +47,16 @@ function getNumOfPostForUser(id) {
 }
 
 function getAllPostsForUser(id) {
-    return datab.execute("SELECT * FROM knowledgebase.post WHERE userid = " + id);
+    return datab.execute("SELECT post.*, users.picture, count(distinct reply.idreply) AS replycount FROM knowledgebase.users LEFT JOIN knowledgebase.post ON post.userid = users.iduser LEFT JOIN knowledgebase.reply ON reply.postid = post.idpost WHERE post.userid = " + id);
 }
 
 function getNumOfMessages(id) {
     return datab.execute("SELECT u.*, count(distinct p.idpost) AS postcount, count(distinct m.idmessage) AS messagecount  FROM users AS u LEFT JOIN post AS p ON u.iduser = p.userid LEFT JOIN message AS m ON u.iduser = m.senderid WHERE u.email = '" + id + "'");
+
+}
+
+function getNumOfReplies(id) {
+    return datab.execute("SELECT count(idreply) AS replycount FROM reply WHERE userid = " + id);
 }
 
 module.exports = {
@@ -64,4 +69,5 @@ module.exports = {
     getnumposts: getNumOfPostForUser,
     getallpostsuser: getAllPostsForUser,
     getnumpostmessages: getNumOfMessages,
+    getnumreplies: getNumOfReplies
 }

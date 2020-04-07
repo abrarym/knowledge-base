@@ -4,13 +4,13 @@
       src="{{data.picture}}" alt="user photo" />
   </a>
   <h2 class="discussion__info">
-    <span class="discussion__heading">{{discussion.topicid}}</span>
-    <span class="discussion__subject"><a href="">{{discussion.subject}}</a></span>
+    <span class="discussion__heading">{{discussion.subject}}</span>
+    <span class="discussion__subject"><a href="">{{discussion.topicid}}</a></span>
     <span class="discussion__description">{{discussion.content}}
     </span>
   </h2>
   <p class="discussion__date">{{discussion.date}}</p>
-  <p class="discussion__replies replies--link" onclick="toggleReplies()">(2) Replies
+  <p class="discussion__replies replies--link" onclick="toggleReplies()">() Replies
   </p>
 </li>
 {{> _replies }}

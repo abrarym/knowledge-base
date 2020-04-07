@@ -23,14 +23,13 @@ router.post('/home', userController.postHome);
 
 router.get('/home', userController.goHome);
 
-router.post('/postings', userController.postPosting);
+router.post('/home/posting', userController.postPosting);
 
 router.get('/profile', userController.getProfile);
 
 router.post('/profile', userController.getProfile);
 
 router.post('/message', userController.postMessage);
-
 
 router.get('/inbox', userController.getInbox);
 

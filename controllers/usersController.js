@@ -106,28 +106,32 @@ exports.postRegister = (req, res) => {
 
 // postHome
 exports.postHome = (req, res) => {
-  const id = req.body.email;
-  const users = userModel.getnumpostmessages(id);
 
-  users.then(([
-    data,
-    metadeta
-  ]) => {
-    userInfo = data[0];
-    console.log(userInfo);
-    const posts = userModel.getallpostsuser(userInfo.iduser);
+    const id = req.body.email;
+    let users = userModel.getnumpostmessages(id);
 
-    posts.then((data, metadeta) => {
-      allUserPosts = data[0];
 
-      console.log(allUserPosts);
-      res.render('home', {
-        discussion: allUserPosts,
-        data: userInfo,
-        style: true,
-        isHome: true,
-        isProfile: false,
-      });
+    users.then(([data, metadeta]) => {
+
+        userInfo = data[0];
+        console.log(userInfo);
+
+        let posts = userModel.getallpostsuser(userInfo.iduser);
+
+        posts.then((data, metadeta) => {
+            allUserPosts = data[0];
+
+            console.log(allUserPosts);
+            res.render('home', {
+            posting: allUserPosts,
+            discussion: postInfo,
+            data: userInfo,
+            style: true,
+            isHome: true,
+            isProfile: false
+            });
+        });
+
     });
   });
 };
@@ -137,30 +141,24 @@ exports.goHome = (req, res) => {
   const idPosts = userInfo.iduser;
   const posts = userModel.getallpostsuser(idPosts);
 
-  posts.then(([
-    data,
-    metadeat
-  ]) => {
-    res.render('home', {
-      discussion: postInfo,
-      data: userInfo,
-      style: true,
-      isHome: true,
-      isProfile: false,
-    });
-  });
-};
-
 exports.getProfile = (req, res) => {
-  res.render('profile', {
-    title: 'Profile page',
-    discussion: postInfo,
-    data: userInfo,
-    isProfile: true,
-    isHome: false,
-    profileCSS: true,
-  });
-};
+
+    let posts = userModel.getallpostsuser(userInfo.iduser);
+
+        posts.then((data, metadeta) => {
+            allUserPosts = data[0];
+
+            console.log(allUserPosts);
+            res.render('profile', {
+            discussion: postInfo,
+            posting : allUserPosts,
+            data: userInfo,
+            style: true,
+            isHome: true,
+            isProfile: false
+            });
+        });
+}
 
 exports.getMessage = (req, res) => {
   res.render('message', {
@@ -170,16 +168,18 @@ exports.getMessage = (req, res) => {
 };
 
 exports.postMessage = (req, res) => {
-  messageDetails = req.body;
-  console.log(messageDetails);
+    messageDetails = req.body;
+    console.log(messageDetails);
+    console.log(messageDetails.subject);
 
-  const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-      user: userInfo.email,
-      pass: userInfo.password,
-    },
-  });
+    var transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: userInfo.email,
+                pass: userInfo.password
+
+            }
+    });
 
   const mailOptions = {
     from: userInfo.email,
@@ -196,29 +196,34 @@ exports.postMessage = (req, res) => {
     }
   });
 
-  res.render('message', {
-    title: 'Message Page',
-    discussion: postInfo,
-    data: userInfo,
-  });
-};
+    transporter.sendMail(mailOptions, function(error, info) {
+        if(error) {
+            console.log(error);
+        } else {
+            console.log('Emal is sent! Reponse was: ' + info.reponse);
+            }
+    });
+
+    res.render('message', {
+        title: 'Message Page',
+        discussion: postInfo,
+        data: userInfo
+    });
+}
 
 exports.postPosting = (req, res) => {
-  postInfo.userid = userInfo.iduser;
-  const datetime = new Date().toDateString();
+    postInfo.userid = userInfo.iduser;
+    var datetime = new Date().toDateString();
+    req.body.date = datetime;
+    postInfo = Object.assign({}, postInfo, req.body);
 
-  req.body.date = datetime;
-  postInfo = Object.assign({}, postInfo, req.body);
+    console.log(postInfo);
 
-  console.log(postInfo);
+    userModel.addpost(postInfo);
+    userInfo.postcount++;
 
-  userModel.addpost(postInfo);
-  userInfo.postcount++;
-
-  res.redirect('/home');
-};
-
-exports.replyPosting = (req, res) => {};
+    res.redirect('/home');
+}
 
 exports.getInbox = (req, res) => {
   res.render('inbox', {

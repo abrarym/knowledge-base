@@ -1,7 +1,9 @@
 <div class="discussion__container">
   <h1 class="question-section__heading--disc">Latest Discussions</h1>
   <ul class="column">
-    {{> _postings }}
+    {{#each discussion}}
+        {{> _postings }}
+      {{/each}}
 
     <div class="pagination--bttn">
       <button class="login-container__bttn next" type="submit">

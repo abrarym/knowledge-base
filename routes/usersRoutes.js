@@ -18,20 +18,20 @@ router.get('/register', userController.getRegister);
 
 router.post('/register', userController.postRegister);
 
-//router.route('/home').get(userController.getHome);
 router.post('/home', userController.postHome);
 
 router.get('/home', userController.goHome);
 
-router.post('/postings', userController.postPosting);
+router.post('/home/reply', userController.postReply);
+
+router.post('/home/posting', userController.postPosting);
 
 router.get('/profile', userController.getProfile);
 
-router.post('/profile', userController.getProfile);
-
 router.post('/message', userController.postMessage);
 
-
 router.get('/inbox', userController.getInbox);
+
+// router.post('/reply' userController.postReply);
 
 module.exports = router;

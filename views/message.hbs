@@ -11,8 +11,10 @@
 
     <!-- send message -->
     <div class="profile-section__contain">
-      <form id="" class="login-container__register msg" method="POST" >
-        <input class="register__flexstretch question" type="text" name=""
+      <form id="" class="login-container__register msg" method="POST" action="/message">
+        <input class="register__flexstretch question" type="text" name="to"
+          placeholder="To:" required />
+        <input class="register__flexstretch question" type="text" name="subject"
           placeholder="subject" required />
 
         <textarea class="register__flexstretch infobox" name="description"

@@ -4,7 +4,7 @@ const pool = mysql.createPool({
     host: 'localhost',
     user: 'root',
     database: 'knowledgebase',
-    password: 'COMP-4711'
+    password: '7S::knowledge'
 });
 
 //

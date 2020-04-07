@@ -24,7 +24,7 @@ router.get('/home', userController.goHome);
 
 router.post('/home/reply', userController.postReply);
 
-router.post('/home/post', userController.postPosting);
+router.post('/home/posting', userController.postPosting);
 
 router.get('/profile', userController.getProfile);
 

@@ -39,14 +39,26 @@ function getSpecificUser(id) {
 }
 
 function getSpecificPost(id) {
-    return datab.execute("SELECT * FROM knowledgebase.post LIMIT 1");
+    return datab.execute("SELECT * FROM knowledgebase.post WHERE userid = " + id);
 }
 
 let postReply = (postid, userid, content) => {
     return datab.execute("INSERT INTO reply (postid, userid, content) VALUES (" 
     + postid + ", "
-    + userid + ", "
-    + content + ")");
+    + userid + ", '"
+    + content + "');");
+}
+
+function getNumOfPostForUser(id) {
+    return datab.execute("SELECT u.*, count(distinct p.idpost) as postcount FROM users AS u LEFT JOIN post AS p ON u.iduser = p.userid WHERE u.email = '" + id + "'");
+}
+
+function getAllPostsForUser(id) {
+    return datab.execute("SELECT * FROM knowledgebase.post WHERE userid = " + id);
+}
+
+function getNumOfMessages(id) {
+    return datab.execute("SELECT u.*, count(distinct p.idpost) AS postcount, count(distinct m.idmessage) AS messagecount  FROM users AS u LEFT JOIN post AS p ON u.iduser = p.userid LEFT JOIN message AS m ON u.iduser = m.senderid WHERE u.email = '" + id + "'");
 }
 
 module.exports = {
@@ -56,5 +68,8 @@ module.exports = {
     addpost : addPosts,
     getallposts : getAllExistingPosts,
     getposts : getSpecificPost,
-    postreply : postReply
+    postreply : postReply,
+    getnumposts : getNumOfPostForUser,
+    getallpostsuser: getAllPostsForUser,
+    getnumpostmessages: getNumOfMessages,
 }

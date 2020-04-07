@@ -19,12 +19,12 @@ function getAllExistingUsers() {
     return datab.execute('Select * from users');
 }
 
-function getSpecificUser(id) {
-    return datab.execute("Select * from users where id = " + id);
+function getSpecificUser(email) {
+    return datab.execute("Select * from users where email = '" + email + "'");
 }
 
 module.exports = {
     add : addUser,
     getall : getAllExistingUsers,
-    getusers: getSpecificUser 
+    getusers: getSpecificUser,
 }

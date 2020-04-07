@@ -1,5 +1,7 @@
 const userModel = require('../models/userDataFile');
 
+let userInfo = {};
+
 exports.getAllExistingUsers = (req, res, next) => {
   const allUsers = userModel.getall();
 
@@ -26,6 +28,59 @@ exports.getUsers = (req, res, next) => {
     res.render('home', { home: data[0], style: true });
   });
 };
+
+exports.post = (req, res) => {
+    userInfo = Object.assign({}, userInfo, req.body);
+    console.log(userInfo);
+    res.render('register', {
+      title: 'Registration page',
+      data: req.body,
+    });
+};
+
+exports.getRegister = (req, res) => {
+    console.log(req.body);
+    res.render('register', {
+      title: 'Registration Page',
+      firstname: req.body.firstname,
+      lastname: req.body.lastname,
+    });
+}
+
+exports.postRegister = (req, res) => {
+    userInfo = Object.assign({}, userInfo, req.body);
+    console.log(userInfo);
+    userModel.add(userInfo);
+    res.render('home', {
+      title: 'Home Page',
+      data: userInfo,
+    });
+}
+
+exports.getHome = (req, res) => {
+    console.log(req.body);
+    res.render('home', {
+      title: 'Home Page',
+    });
+}
+
+exports.getProfile = (req, res) => {
+    res.render('profile', {
+      title: 'Profile Page',
+    });
+}
+
+exports.getMessage = (req, res) => {
+    res.render('message', {
+      title: 'Message Page',
+    });
+}
+
+exports.getInbox = (req, res) => {
+    res.render('inbox', {
+      title: 'Inbox Page',
+    });
+}
 
 exports.postAddUsers = (req, res, next) => {
   const u_firstname = req.body.firstname;

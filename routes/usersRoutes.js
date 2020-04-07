@@ -10,4 +10,20 @@ router.get('/usersController/:id', userController.getUsers);
 
 router.post('/usersController/add', userController.postAddUsers);
 
+// matthew's stuff below
+
+router.post('/', userController.post);
+
+router.get('/register', userController.getRegister);
+  
+router.post('/register', userController.postRegister);
+
+router.get('/home', userController.getHome);
+
+router.get('/profile', userController.getProfile);
+
+router.get('/message', userController.getMessage);
+
+router.get('/inbox', userController.getInbox);
+
 module.exports = router;

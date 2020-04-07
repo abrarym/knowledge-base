@@ -1,7 +1,7 @@
 let datab = require('../util/database');
 
 function addUser(userInfo) {
-    let sql = "Insert into users(firstname, lastname, email, password, picture, description, occupation, country, dateofbirth) values ('" 
+    let sql = "INSERT into users(firstname, lastname, email, password, picture, description, occupation, country, dateofbirth) values('" 
     + userInfo.firstname + "', '"
     + userInfo.lastname + "', '" 
     + userInfo.email + "', '"
@@ -16,15 +16,15 @@ function addUser(userInfo) {
 }
 
 function getAllExistingUsers() {
-    return datab.execute('Select * from users');
+    return datab.execute('SELECT * FROM usersdatastorage.users');
 }
 
-function getSpecificUser(email) {
-    return datab.execute("Select * from users where email = '" + email + "'");
+function getSpecificUser(id) {
+    return datab.execute("SELECT * FROM usersdatastorage.users WHERE email = '" + id + "'");
 }
 
 module.exports = {
     add : addUser,
     getall : getAllExistingUsers,
-    getusers: getSpecificUser,
+    getusers: getSpecificUser
 }

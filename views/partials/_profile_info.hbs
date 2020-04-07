@@ -1,10 +1,9 @@
-<img class="profile-section__img profile"
-  src="https://randomuser.me/api/portraits/women/60.jpg"
-  alt="user profile picture"/>
+<a href="/profile"><img class="profile-section__img profile"
+    src="{{ data.url }}" alt="user profile picture" /></a>
 <h2 class="profile-section__heading">
-  <span class="profile-section__heading--main">{{data.firstname}} {{data.lastname}}</span>
+  <span class="profile-section__heading--main">{{ data.firstname }}
+    {{ data.lastname }}</span>
 
-  <!-- Benson try to find a condition to switch these based on the current route/directory the user is in -->
   <!-- {{> _profile_sub_home }} -->
   {{> _profile_sub_profile }}
 </h2>

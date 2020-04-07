@@ -1,0 +1,20 @@
+<li class="row">
+<input type="hidden" name="postid" value="{{idpost}}"/>
+  <a href="" class="">
+    <img class="profile-section__img"
+      src="{{picture}}" alt="user photo" />
+  </a>
+  <h2 class="discussion__info">
+    <span class="discussion__heading">{{subject}}</span>
+    <span class="discussion__subject"><a href="">{{topicid}}</a></span>
+    <span class="discussion__description">{{content}}
+    </span>
+  </h2>
+  <p class="discussion__date">{{date}}</p>
+  <p class="discussion__replies replies--link" onclick="toggleReplies()">({{replycount}}) Replies
+  </p>
+</li>
+{{#each 0}}
+{{> _replies }}
+{{/each}}
+{{> _add_reply }}

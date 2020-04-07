@@ -1,0 +1,26 @@
+.profile-section__contain {
+  flex: 0 30%;
+}
+
+.profile-section__img.profile {
+  width: 20rem;
+}
+
+.profile-section__heading--main {
+  font-size: 3rem;
+}
+
+.profile-section__heading--sub.profile {
+  font-size: 1.8rem;
+}
+
+.message--wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-section__interact {
+  margin-top: 1.4rem;
+}

@@ -1,0 +1,20 @@
+<form id="registrationForm" class="login-container__register" method="POST" action="/">
+  <input class="register__firstname" type="text" name="firstname"
+    placeholder="first name" required />
+
+  <input class="register__lastname" type="text" name="lastname"
+    placeholder="last name" required />
+
+  <input class="register__flexstretch" type="email" name="email"
+    placeholder="email" required />
+
+  <input id="enterPassword" class="register__flexstretch" type="password"
+    name="password" placeholder="password" required />
+
+  <input id="confirmPassword" class="register__flexstretch" type="password"
+    name="passwordconfirm" placeholder="confirm password" required />
+
+  <button name="signinButton" onclick="validatePassword();" type="submit" class="login-container__bttn signup">
+    sign up
+  </button>
+</form>

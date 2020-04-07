@@ -1,0 +1,34 @@
+<main class="wrapper__home">
+  <div class="welcome-container home">
+    {{> _navbar_main }}
+  </div>
+
+  <!-- profile section -->
+  <div class="profile-section home">
+    <div class="profile-section__contain">
+      {{> _profile_info }}
+      <form method="POST" action="/message" class="login-container__register message">
+        <div class="message--wrap">
+          <button class="login-container__bttn message" type="submit">Message</button>
+
+          <table class="profile-section__interact">
+            <tr>
+              <th>🔥 Posts</th>
+              <td id="">{{data.postcount}}</td>
+            </tr>
+            <tr class="profile-section__interact--likes">
+              <th>👍 Likes</th>
+              <td id="">{{ data.likes }}</td>
+            </tr>
+          </table>
+        </div>
+      </form>
+    </div>
+
+    <!-- question section -->
+    <div class="profile-section__contain question">
+      {{> _profile_posts }}
+    </div>
+    <!-- ./END-question section -->
+  </div>
+</main>

@@ -13,9 +13,9 @@
   <div class="profile-section home">
     <div class="profile-section__contain">
       {{> _profile_info }}
-      <form id="" class="login-container__register message" method="POST">
+      <form method="POST" action="/message" class="login-container__register message">
         <div class="message--wrap">
-          <button class="login-container__bttn message"
+            <button class="login-container__bttn message"
             type="submit">Message</button>
 
           <table class="profile-section__interact">
@@ -25,7 +25,7 @@
             </tr>
             <tr class="profile-section__interact--likes">
               <th>👍 Likes</th>
-              <td id="">10</td>
+              <td id="">{{data.likes}}</td>
             </tr>
           </table>
         </div>

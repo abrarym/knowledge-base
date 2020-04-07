@@ -19,14 +19,18 @@ router.get('/register', userController.getRegister);
 router.post('/register', userController.postRegister);
 
 //router.route('/home').get(userController.getHome);
-router.post('/home', userController.getHome);
-router.get('/home', userController.getHome);
+router.post('/home', userController.postHome);
+
+router.get('/home', userController.goHome);
+
+router.post('/postings', userController.postPosting);
 
 router.get('/profile', userController.getProfile);
 
 router.post('/profile', userController.getProfile);
 
-router.get('/message', userController.getMessage);
+router.post('/message', userController.postMessage);
+
 
 router.get('/inbox', userController.getInbox);
 

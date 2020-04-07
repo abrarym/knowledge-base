@@ -1,14 +1,17 @@
 <!-- header_login -->
 <section class="header-image-container home">
   <div class="header home">
-    <a method="POST" action="/home">
+    <form method="GET" action="/home">
+    <a href="javascript:;" onclick="parentNode.submit();">
     <div class="header__text-box">
       <h1 class="heading-primary home">
         <span class="heading-primary--main">k</span><span
           class="heading-primary--sub home">B</span>
       </h1>
     </div>
-    </a>
+        <input type = "hidden" name = "mess"/>
+        </a>
+    </form>
   </div>
 </section>
 <!-- ./end-header_login -->

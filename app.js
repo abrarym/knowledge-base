@@ -88,6 +88,12 @@ app.get('/message', (req, res) => {
   });
 });
 
+app.get('/inbox', (req, res) => {
+  res.render('inbox', {
+    title: 'Inbox Page',
+  });
+});
+
 app.listen(port, () => {
   console.log('server is up on port 3000');
 });

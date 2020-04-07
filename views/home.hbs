@@ -13,18 +13,18 @@
 
       <table class="profile-section__interact">
         <tr>
-          <th><a href="#">🔥 Posts</a></th>
-          <td id="">3</td>
-        </tr>
-        
-        <tr> 
-          <th>📥 Messages</th>
-          <td id="">5</td>
+          <th><a href="profile.hbs">🔥 Posts</a></th>
+          <td id="">{{ data.postcount }}</td>
         </tr>
 
-        <tr class="profile-section__interact--likes">
+        <tr>
+          <th><a method="GET" href="inbox">📥 Messages</a></th>
+          <td id="">{{ data.messagecount }}</td>
+        </tr>
+
+        <tr>
           <th>👍 Likes</th>
-          <td id="">10</td>
+          <td id="">{{ data.likes }}</td>
         </tr>
 
         <tr>

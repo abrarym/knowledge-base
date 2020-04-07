@@ -1,8 +1,10 @@
 let userModel = require('../models/userDataFile');
+var nodemailer = require('nodemailer');
 let userInfo = {};
 let postInfo = {};
 let allUserPosts = {};
 let numberOfPost = {};
+let messageDetails = {};
 
 const getAllExistingUsers = (req, res) => {
   const allUsers = userModel.getall();
@@ -165,8 +167,35 @@ exports.getMessage = (req, res) => {
 }
 
 exports.postMessage = (req, res) => {
+    messageDetails = req.body;
+    console.log(messageDetails);
+    
+    var transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: userInfo.email,
+                pass: userInfo.password
+
+            }
+    });
+
+    var mailOptions = {
+        from: userInfo.email,
+        to: messageDetails.to,
+        subject: messageDetails.subject,
+        text: messageDetails.text
+    }
+
+    transporter.sendMail(mailOptions, function(error, info) {
+        if(error) {
+            console.log(error);
+        } else {
+            console.log('Emal is sent! Reponse was: ' + info.reponse);
+            }
+    });
+        
     res.render('message', {
-      title: 'Message Page',
+        title: 'Message Page',
         discussion: postInfo,
         data: userInfo
     });

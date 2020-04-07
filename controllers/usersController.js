@@ -104,30 +104,33 @@ exports.postRegister = (req, res) => {
 
 // postHome
 exports.postHome = (req, res) => {
-  const id = req.body.email;
-  const users = userModel.getnumpostmessages(id);
 
-  users.then(([
-    data,
-    metadeta
-  ]) => {
-    userInfo = data[0];
-    console.log(userInfo);
-    const posts = userModel.getallpostsuser(userInfo.iduser);
+    const id = req.body.email;
+    let users = userModel.getnumpostmessages(id);
 
-    posts.then((data, metadeta) => {
-      allUserPosts = data[0];
-      //            for(let i = 0; i < allUserPosts.length; i++) {
-      //                console.log(allUserPosts[i]);
-      //            }
-      console.log(allUserPosts);
-      res.render('home', {
-        posts: allUserPosts,
-        data: userInfo,
-        style: true,
-        isHome: true,
-        isProfile: false,
-      });
+
+    users.then(([data, metadeta]) => {
+
+        userInfo = data[0];
+        console.log(userInfo);
+        let posts = userModel.getallpostsuser(userInfo.iduser);
+
+        posts.then((data, metadeta) => {
+            allUserPosts = data[0];
+//            for(let i = 0; i < allUserPosts.length; i++) {
+//                console.log(allUserPosts[i]);
+//            }
+
+            console.log(allUserPosts);
+            res.render('home', {
+            discussion: allUserPosts,
+            data: userInfo,
+            style: true,
+            isHome: true,
+            isProfile: false
+            });
+        });
+
     });
   });
 };

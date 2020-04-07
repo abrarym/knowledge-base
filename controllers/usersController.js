@@ -1,7 +1,8 @@
 let userModel = require('../models/userDataFile');
 let userInfo = {};
 let postInfo = {};
-let uniqueInfo = {};
+let allUserPosts = {};
+let numberOfPost = {};
 
 const getAllExistingUsers = (req, res) => {
   const allUsers = userModel.getall();
@@ -100,25 +101,39 @@ exports.postRegister = (req, res) => {
 
 //postHome
 exports.postHome = (req, res) => {
+    
     const id = req.body.email;
-    const users = userModel.getusers(id);
+    let users = userModel.getnumpostmessages(id);
+
     
     users.then(([data, metadeta]) => {
+        
         userInfo = data[0];
         console.log(userInfo);
-        res.render('home', { 
-            data: data[0], 
+        let posts = userModel.getallpostsuser(userInfo.iduser);
+        
+        posts.then((data, metadeta) => {
+            allUserPosts = data[0];
+//            for(let i = 0; i < allUserPosts.length; i++) {
+//                console.log(allUserPosts[i]);
+//            }
+            console.log(allUserPosts);
+            res.render('home', {
+            posts: allUserPosts,
+            data: userInfo, 
             style: true,
             isHome: true,
             isProfile: false
-        });
+            });
+        });    
+        
     });
 }
 
 // Same as getHome
 exports.goHome = (req, res) => {
-    const idPosts = userInfo.iduser;
-    const posts = userModel.getposts(idPosts);
+    let idPosts = userInfo.iduser;
+    let posts = userModel.getallpostsuser(idPosts);
     
     posts.then(([data, metadeat]) => {
             res.render('home', {
@@ -134,6 +149,7 @@ exports.goHome = (req, res) => {
 exports.getProfile = (req, res) => {
     res.render('profile', {
         title: "Profile page",
+        discussion: postInfo,
         data: userInfo,
         isProfile: true,
         isHome: false
@@ -150,32 +166,34 @@ exports.getMessage = (req, res) => {
 exports.postMessage = (req, res) => {
     res.render('message', {
       title: 'Message Page',
+        discussion: postInfo,
         data: userInfo
     });
 }
 
-exports.postPosting = (req, res) => {
-    
+exports.postPosting = (req, res) => { 
     postInfo.userid = userInfo.iduser;
     var datetime = new Date().toDateString();
     req.body.date = datetime;
-    req.body.likes = 0;
     postInfo = Object.assign({}, postInfo, req.body);
     
     console.log(postInfo);
     
-    userModel.addpost(postInfo);
-    res.render('postings', {
-        title: 'Posting page',
-        discussion: postInfo,
-        data: userInfo
-        
-    })
+    userModel.addpost(postInfo);    
+    userInfo.postcount++;
+
+    res.redirect('/home');
+}
+
+exports.replyPosting = (req, res) => {
+    
 }
 
 exports.getInbox = (req, res) => {
+    
     res.render('inbox', {
       title: 'Inbox Page',
-        data: userInfo
+        data: userInfo,
+        discussion: postInfo
     });
 }

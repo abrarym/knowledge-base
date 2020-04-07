@@ -2,9 +2,11 @@ const path = require('path');
 const express = require('express');
 const expressHbs = require('express-handlebars');
 const bodyParser = require('body-parser');
-
 const app = express();
 const port = process.env.PORT || 3000;
+
+//const urlencodedParser = bodyParser.urlencoded({ extended: false });
+//let userInfo = {};
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -32,8 +34,8 @@ app.use(express.static(publicDirectoryPath));
 const userRoutesFile = require('./routes/usersRoutes');
 
 app.get('/', (req, res) => {
-  res.render('index', {
-    title: 'Where Developers Learn, Share & Refactor',
+    res.render('index', {
+      title: 'Where Developers Learn, Share & Refactor',
   });
 });
 

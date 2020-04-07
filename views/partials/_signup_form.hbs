@@ -1,4 +1,5 @@
-<form id="registrationForm" class="login-container__register" method="POST" action="/">
+<form id="registrationForm" class="login-container__register" method="POST"
+  action="/">
   <input class="register__firstname" type="text" name="firstname"
     placeholder="first name" required />
 
@@ -8,11 +9,14 @@
   <input class="register__flexstretch" type="email" name="email"
     placeholder="email" required />
 
-  <input class="register__flexstretch" type="password" name="password"
-    placeholder="password" required />
+  <input id="enterPassword" class="register__flexstretch" type="password"
+    name="password" placeholder="password" required />
 
-  <input class="register__flexstretch" type="password" name="passwordconfirm"
-    placeholder="confirm password" required />
+  <input id="confirmPassword" class="register__flexstretch" type="password"
+    name="passwordconfirm" placeholder="confirm password" required />
 
-  <button type="submit" class="login-container__bttn signup">sign up</button>
+  <button id="submitForm" onclick="validatePassword()" type="submit"
+    class="login-container__bttn signup">
+    sign up
+  </button>
 </form>

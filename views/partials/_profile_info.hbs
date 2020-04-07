@@ -1,8 +1,7 @@
 <a method='POST' href='/profile'><img class="profile-section__img profile"
   src="{{data.picture}}" alt="user profile picture"/></a>
 <h2 class="profile-section__heading">
-  <span class="profile-section__heading--main">{{ data.firstname }}
-    {{ data.lastname }}</span>
+  <span class="profile-section__heading--main">{{ data.firstname }} {{ data.lastname }}</span>
 
   {{#if isHome }}
   {{> _profile_sub_home }}

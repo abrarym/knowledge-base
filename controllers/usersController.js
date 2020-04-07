@@ -208,3 +208,4 @@ exports.postReply = (req, res) => {
     reply = userModel.postreply(req.body.postid, userInfo.iduser, req.body.description);
     res.redirect('/home');
 }
+

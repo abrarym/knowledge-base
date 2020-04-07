@@ -77,5 +77,5 @@ module.exports = {
     getnumposts : getNumOfPostForUser,
     getallpostsuser: getAllPostsForUser,
     getnumpostmessages: getNumOfMessages,
-    getnumreplies: getNumOfReplies
+    getnumreplies: getNumOfReplies,
 }

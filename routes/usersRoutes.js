@@ -20,6 +20,7 @@ router.post('/register', userController.postRegister);
 
 //router.route('/home').get(userController.getHome);
 router.post('/home', userController.getHome);
+router.get('/home', userController.getHome);
 
 router.get('/profile', userController.getProfile);
 

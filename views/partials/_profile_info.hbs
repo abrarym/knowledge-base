@@ -1,9 +1,14 @@
-<a method='GET' href='/profile'><img class="profile-section__img profile"
+<a method='POST' href='/profile'><img class="profile-section__img profile"
   src="{{data.url}}" alt="user profile picture"/></a>
 <h2 class="profile-section__heading">
-  <span class="profile-section__heading--main">{{data.firstname}} {{data.lastname}}</span>
+  <span class="profile-section__heading--main">{{ data.firstname }}
+    {{ data.lastname }}</span>
 
-  <!-- Benson try to find a condition to switch these based on the current route/directory the user is in -->
-  <!-- {{> _profile_sub_home }} -->
+  {{#if isHome }}
+  {{> _profile_sub_home }}
+  {{/if}}
+
+  {{#if isProfile }}
   {{> _profile_sub_profile }}
+  {{/if}}
 </h2>

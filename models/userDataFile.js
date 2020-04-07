@@ -1,7 +1,16 @@
 let datab = require('../util/database');
 
-function addUsers(userInfo) {
-    let sql = "INSERT into users(firstname, lastname, email, password, passwordconfirm, url, description, occupation, country, dateOfBirth) values('" + userInfo.firstname + "', '" + userInfo.lastname + "', '" + userInfo.email + "', '" + userInfo.password + "', '" + userInfo.passwordconfirm + "', '" + userInfo.url + "', '" + userInfo.description + "', '" + userInfo.occupation + "', '" + userInfo.country + "', '" + userInfo.dateOfBirth + "')";
+function addUser(userInfo) {
+    let sql = "INSERT into users(firstname, lastname, email, password, picture, description, occupation, country, dateofbirth) values('" 
+    + userInfo.firstname + "', '"
+    + userInfo.lastname + "', '" 
+    + userInfo.email + "', '"
+    + userInfo.password + "', '"
+    + userInfo.url + "', '"
+    + userInfo.description + "', '"
+    + userInfo.occupation + "', '" 
+    + userInfo.country + "', '" 
+    + userInfo.dateOfBirth + "')";
     
     datab.execute(sql);
 }
@@ -15,7 +24,7 @@ function getSpecificUser(id) {
 }
 
 module.exports = {
-    add : addUsers,
+    add : addUser,
     getall : getAllExistingUsers,
-    getusers: getSpecificUser 
+    getusers: getSpecificUser
 }

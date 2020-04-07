@@ -1,27 +1,19 @@
 let userModel = require('../models/userDataFile');
+let userInfo = {};
 
-exports.getAllExistingUsers = (req, res) => {
-    let allUsers = userModel.getall();
-    
-    allUsers.then(([rows, fieldData]) => {
-       res.render('profile', {style: rows, style: true}); 
-    });
-}
+const getAllExistingUsers = (req, res) => {
+  const allUsers = userModel.getall();
 
-exports.getAddUsers = (req, res) => {
-    res.render('register', {formCSS: true});
+  allUsers.then(([rows, fieldData]) => {
+    res.render('profile', { style: rows, style: true });
+  });
 };
 
-exports.getUsers = (req, res) => {
-    let id = req.body.email;
-    let gettingUsers = userModel.getusers(id);
-    gettingUsers.then(([data, metadeta]) => {
-       res.render('home', {
-           data: data[0],
-           style: true
-       }); 
-    });
-}
+const getAddUsers = (req, res) => {
+  res.render('register', { 
+      formCSS: true      
+  });
+};
 
 exports.postAddUsers = (req, res) => {
     let u_firstname = req.body.firstname;
@@ -50,4 +42,64 @@ exports.postAddUsers = (req, res) => {
     
     userModel.add(c0dingProject);
     res.redirect(301, '/usersRoutes');
+}
+
+exports.post = (req, res) => {
+    console.log(req.body.loginButton);
+};
+
+exports.getRegister = (req, res) => {
+    console.log(req.body);
+    res.render('register', {
+      title: 'Registration Page',
+      firstname: req.body.firstname,
+      lastname: req.body.lastname,
+    });
+}
+
+exports.postRegister = (req, res) => {
+    userInfo = Object.assign({}, userInfo, req.body);
+    console.log(userInfo);
+    userModel.add(userInfo);
+    res.render('home', {
+      title: 'Home Page',
+      data: userInfo,
+    });
+}
+
+exports.getHome = (req, res) => {
+    const id = req.body.email;
+    const users = userModel.getusers(id);
+    users.then(([data, metadeta]) => {
+        userInfo = data[0];
+        res.render('home', { 
+            data: data[0], 
+            style: true,
+            isHome: true,
+            isProfile: false
+        });
+    });
+}
+
+exports.getProfile = (req, res) => {
+    res.render('profile', {
+        title: "Profile page",
+        data: userInfo,
+        isProfile: true,
+        isHome: false
+    });
+}
+
+exports.getMessage = (req, res) => {
+    res.render('message', {
+      title: 'Message Page',
+        data: userInfo
+    });
+}
+
+exports.getInbox = (req, res) => {
+    res.render('inbox', {
+      title: 'Inbox Page',
+        data: userInfo
+    });
 }

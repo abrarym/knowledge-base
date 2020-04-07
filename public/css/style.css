@@ -97,6 +97,12 @@ hr {
   margin: 0 auto 3rem;
 }
 
+.hr__inbox {
+  border-top: solid;
+  margin: 1.5rem auto;
+  width: 80%;
+}
+
 .wrapper__home {
   display: flex;
   flex-direction: column;
@@ -231,6 +237,10 @@ select:focus {
   flex: 0 30rem;
 }
 
+.profile-section__contain.inbox {
+  flex: 0 40rem;
+}
+
 .profile-section__contain.question {
   display: flex;
   flex-direction: column;
@@ -243,6 +253,14 @@ select:focus {
   width: 12rem;
   border-radius: 100%;
   border: .25rem solid var(--borderOutline);
+}
+
+.profile-section__img.inbox {
+  width: 10rem;
+}
+
+.profile-section__img.inboxMsg {
+  width: 8rem;
 }
 
 .profile-section__img.replies {
@@ -392,6 +410,12 @@ select:focus {
   margin-top: -.1rem;
 }
 
+.row.inboxMsg {
+  max-width: 44rem;
+  border-radius: .6rem;
+  margin-bottom: 1rem;
+}
+
 .row.replies {
   margin-left: 6rem;
   border: none;
@@ -412,7 +436,6 @@ select:focus {
   box-shadow: .4rem .7rem 2rem rgba(var(--boxShadows), .35);
   border: .1rem solid transparent;
   transform: scale(1.05);
-  /* text-shadow: rgba(17, 17, 17, .2) .1rem .2rem .2rem; */
   transition: .12s ease-out;
   backface-visibility: hidden;
 }
@@ -464,6 +487,11 @@ select:focus {
   flex-wrap: wrap;
 }
 
+.discussion__info.inbox {
+  margin-bottom: 0;
+  margin-bottom: 1rem;
+}
+
 .discussion__heading {
   margin-bottom: .6rem;
   letter-spacing: .12rem;
@@ -472,6 +500,10 @@ select:focus {
   text-transform: capitalize;
   display: block;
   flex: 1 0 60%;
+}
+
+.discussion__heading.username {
+  margin-bottom: 0;
 }
 
 .discussion__subject {
@@ -508,10 +540,24 @@ select:focus {
   flex: 0 1 100%;
 }
 
+.discussion__description.inbox {
+  font-size: 1.6rem;
+  text-transform: capitalize;
+}
+
 .discussion__date {
   text-align: right;
   flex: 0 1 53%;
   font-size: 1.4rem;
+}
+
+.discussion__date.inbox {
+  flex: 1 0 100%;
+  margin-top: 2rem;
+}
+
+.discussion__date.inboxMsg {
+  margin-right: .2rem;
 }
 
 .discussion__replies {

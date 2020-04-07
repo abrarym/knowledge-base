@@ -1,0 +1,30 @@
+<main class="wrapper__home">
+  <div class="welcome-container home">
+    {{> _navbar_main }}
+  </div>
+
+  <!-- profile avatar section -->
+  <div class="profile-section home">
+    <div class="profile-section__contain inbox">
+      <ul class="column">
+        {{> _inbox_topic }}
+      </ul>
+    </div>
+
+    <!-- question section -->
+    <div class="profile-section__contain question">
+      <ul class="column">
+        {{> _inbox_message }}
+        {{> _inbox_message }}
+        {{> _inbox_message }}
+        <form id="" class="comment__reply" method="POST">
+          <textarea class="infobox reply" name="description"
+            placeholder="Write a message..."></textarea>
+          <button class="login-container__bttn reply"
+            type="submit">Send</button>
+        </form>
+      </ul>
+    </div>
+    <!-- ./END-question section -->
+  </div>
+</main>

@@ -1,10 +1,12 @@
 const nodemailer = require('nodemailer');
+
 const userModel = require('../models/userDataFile');
 
 let userInfo = {};
 let postInfo = {};
 let allUserPosts = {};
 const numberOfPost = {};
+
 let messageDetails = {};
 
 const getAllExistingUsers = (req, res) => {
@@ -106,6 +108,7 @@ exports.postRegister = (req, res) => {
 
 // postHome
 exports.postHome = (req, res) => {
+
   const id = req.body.email;
   const users = userModel.getnumpostmessages(id);
 
@@ -132,7 +135,6 @@ exports.postHome = (req, res) => {
   });
 };
 
-// Same as getHome
 exports.goHome = (req, res) => {
   const idPosts = userInfo.iduser;
   const posts = userModel.getallpostsuser(idPosts);
@@ -170,6 +172,7 @@ exports.getMessage = (req, res) => {
 };
 
 exports.postMessage = (req, res) => {
+
   messageDetails = req.body;
   console.log(messageDetails);
 
@@ -212,18 +215,26 @@ exports.postPosting = (req, res) => {
 
   console.log(postInfo);
 
+
   userModel.addpost(postInfo);
   userInfo.postcount++;
 
   res.redirect('/home');
 };
 
-exports.replyPosting = (req, res) => {};
-
 exports.getInbox = (req, res) => {
-  res.render('inbox', {
-    title: 'Inbox Page',
-    data: userInfo,
-    discussion: postInfo,
-  });
-};
+    res.render('inbox', {
+        title: 'Inbox Page',
+        data: userInfo,
+        discussion: postInfo,
+    });
+}
+
+exports.postReply = (req, res) => {
+    console.log(postInfo.idpost)
+    console.log(userInfo.iduser)
+    console.log(req.body.description)
+    reply = userModel.postreply(req.body.postid, userInfo.iduser, req.body.description);
+    res.redirect('/home');
+}
+

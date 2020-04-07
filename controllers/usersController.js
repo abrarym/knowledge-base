@@ -136,7 +136,8 @@ exports.getProfile = (req, res) => {
         title: "Profile page",
         data: userInfo,
         isProfile: true,
-        isHome: false
+        isHome: false,
+        profileCSS: true
     });
 }
 

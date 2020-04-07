@@ -3,16 +3,10 @@ const mysql = require('mysql2');
 const pool = mysql.createPool({
     host: 'localhost',
     user: 'root',
-    database: 'usersDataStorage',
+    database: 'knowledgebase',
     password: 'COMP-4711'
 });
 
-//const poolDiscussion = mysql.createPool({
-//    host: 'localhost',
-//    user: 'root',
-//    database: 'discussionStorage',
-//    password: 'COMP-4711'
-//});
 //
 //const poolMessages = mysql.createPool({
 //    host: 'localhost',
@@ -22,4 +16,4 @@ const pool = mysql.createPool({
 //});
 
 module.exports = pool.promise();
-//module.exports = poolDiscussion.promise();
+

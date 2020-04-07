@@ -15,16 +15,39 @@ function addUser(userInfo) {
     datab.execute(sql);
 }
 
+function addPosts(postId) {
+    let sql = "INSERT into post(userid, subject, content, topicid, date, likes) values('"
+    + postId.userid + "', '"
+    + postId.subject + "', '"
+    + postId.content + "', '"
+    + postId.topicid + "', '"
+    + postId.date + "', '"
+    + postId.likes + " ')";
+    
+    datab.execute(sql);
+}
+
 function getAllExistingUsers() {
-    return datab.execute('SELECT * FROM usersdatastorage.users');
+    return datab.execute('SELECT * FROM knowledgebase.users');
+}
+
+function getAllExistingPosts() {
+    return datab.execute('SELECT * FROM knowledgebase.post');
 }
 
 function getSpecificUser(id) {
-    return datab.execute("SELECT * FROM usersdatastorage.users WHERE email = '" + id + "'");
+    return datab.execute("SELECT * FROM knowledgebase.users WHERE email = '" + id + "'");
+}
+
+function getSpecificPost(id) {
+    return datab.execute("SELECT * FROM knowledgebase.post WHERE userid = '" + id + "'");
 }
 
 module.exports = {
     add : addUser,
     getall : getAllExistingUsers,
-    getusers: getSpecificUser
+    getusers: getSpecificUser,
+    addpost : addPosts,
+    getallposts : getAllExistingPosts,
+    getposts : getSpecificPost
 }

@@ -73,12 +73,16 @@ app.get('/home', urlencodedParser, (req, res) => {
   console.log(req.body);
   res.render('home', {
     title: 'Home Page',
+    isProfile: false,
+    isHome: true,
   });
 });
 
 app.get('/profile', (req, res) => {
   res.render('profile', {
     title: 'Profile Page',
+    isProfile: true,
+    isHome: false,
   });
 });
 

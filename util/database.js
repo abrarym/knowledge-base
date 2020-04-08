@@ -2,9 +2,9 @@ const mysql = require('mysql2');
 
 const pool = mysql.createPool({
     host: 'localhost',
-    user: 'root',
-    database: 'knowledgebase',
-    password: '7S::knowledge'
+    user: 'b8afeaa1472c8c',
+    database: 'heroku_38b949a65d7a24b',
+    password: '263ecc04'
 });
 
 //
